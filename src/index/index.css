@@ -1,0 +1,144 @@
+@import "../style.css";
+
+body {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory; 
+    scroll-behavior: smooth;  
+}
+
+.full-absolute {
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    top: 0; 
+    height: 100vh;
+}
+
+#cover {
+    scroll-snap-align: start;
+}
+
+#work {
+    --tile-size: min(70vh, 30vw);
+    
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    height: 100vh;
+    scroll-snap-align: start; 
+    
+    transition: background-color 200ms linear;
+}
+
+#work-bg {
+    z-index: -2;
+
+    background-position: center;
+    background-size: cover;
+}
+
+#work-overlay {
+    backdrop-filter: brightness(60%);
+    pointer-events: none;
+}
+
+#work-tile {
+    z-index: 4;
+    pointer-events: none;
+
+    position: absolute;
+    overflow: hidden;
+
+    width: var(--tile-size);
+    height: var(--tile-size);
+
+    left: calc(25vw - var(--tile-size) / 2);
+    top: calc(50vh - var(--tile-size) / 2);
+
+    padding: calc(var(--tile-size) * 0.15);
+    
+    color: #1F305E;
+    
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('/public/images/web/Tile.jpg');
+}
+
+@media screen and (max-width: 450px) {
+    #scrollbar {
+        padding-block: calc(calc(75vh - var(--tile-size) / 2) / 2) !important;
+        margin-top: calc(25vh + var(--tile-size) / 2) !important;
+        height: calc(75vh - var(--tile-size) / 2) !important;
+    }
+
+    #work {
+        --tile-size: min(40vh, 80vw) !important;
+    }
+
+    #work-tile {
+        left: calc(50vw - var(--tile-size) / 2) !important;
+        top: calc(25vh - var(--tile-size) / 2) !important;
+    }
+}
+
+#work-title  {
+    height: min-content;
+    font-weight: bold;
+    font-size: calc(0.12 * var(--tile-size));
+    height: 1em;
+    margin-block-end: 0.1em;
+}
+
+#work-date {
+    font-style: italic;
+    font-size: calc(0.04 * var(--tile-size));
+}
+
+#work-text {
+    font-family: 'Roboto';
+    margin-block-start: 0.67em;
+    font-size: min(calc(0.045 * var(--tile-size)), 1em);
+}
+
+#scrollbar {
+    z-index: 3;
+
+    padding-block: 50vh;
+
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory; 
+    scroll-behavior: smooth;  
+}
+
+#scrollbar img {
+    z-index: 1;
+    width: 6vw;
+    max-width: 6vw;
+    height: auto;
+    transform: translateY(-50%);
+}
+
+.work-step:first-child {
+    margin-top: 0;
+}
+
+.work-step {
+    scroll-snap-align: center;
+    margin-bottom: 6%;
+    margin-top: -2%;
+}

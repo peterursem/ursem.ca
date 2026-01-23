@@ -1,0 +1,25 @@
+let images = []
+
+for (let i = 0; i < 31; i++) {
+    let fileName = i.toLocaleString('en-US', {
+    minimumIntegerDigits: 2,
+    useGrouping: false
+     })
+    
+    let imgObj = {
+        url: "/2024/Motorcycle/"+fileName,
+        tags: []
+    };
+        
+    images.push(imgObj);
+}
+
+let JSON = {
+    "title": "Nederland",
+    date: "August 2024",
+    numFavs: 10,
+    favs: [0,1,2,4,5,6,8,10,11,12,13,14,19,20,21,24,25,26,27,28,30],
+    imgs: images
+};
+
+console.log(JSON);

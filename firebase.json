@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "ursem.cc",
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",

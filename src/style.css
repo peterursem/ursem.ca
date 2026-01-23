@@ -1,0 +1,84 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@font-face {
+        font-family: 'dm_serif';
+        src: url(/fonts/DM_Serif_Display/DMSerifDisplay-Regular.ttf) format("truetype");
+        font-display: swap;
+}
+
+@font-face {
+        font-family: 'greycliff';
+        src: url(/fonts/Greycliff-CF-Heavy.otf) format("opentype");
+        font-display: swap;
+}
+
+@font-face {
+  font-family: 'Garamond';
+  font-weight: 400 800;
+  font-style: normal;
+  src: url(/fonts/EBGaramond-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: 'Garamond';
+  font-weight: 400 800;
+  font-style: italic;
+  src: url(/fonts/EBGaramond-Italic-VariableFont_wght.ttf);
+}
+
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 100 900;
+  src: url(/fonts/Roboto-VariableFont_wdth,wght.ttf);
+}
+
+html {
+       overflow: hidden;
+       height: 100vh; 
+}
+
+* {
+        scrollbar-width: none;
+
+        margin: 0;
+        padding: 0;
+
+        font-family: 'Garamond';
+}
+
+*::-webkit-scrollbar {
+        display: none;
+}
+
+.snap {
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+}
+
+.scroll {
+        overflow-y: scroll;
+}
+
+.no-scroll {
+        overflow-y: hidden;
+}
+
+#cover {
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+}
+
+#cover-text {
+        backdrop-filter: brightness(60%);
+}
+
+.gradient {
+        fill: url("#linear-gradient");
+}
