@@ -1,0 +1,70 @@
+@import "../style.css";
+
+.collection {
+        overflow: hidden;
+        backdrop-filter: blur(2px);
+}
+
+.collection>.background {
+        position: absolute;
+        left: 50%;
+        min-height: 100%;
+        min-width: 100%;
+        max-height: max-content;
+        max-width: max-content;
+        height: auto;
+        width: auto;
+        transform: translateX(-50%);
+        z-index: -1;
+}
+
+.collection>.content {
+        width: 100%;
+        height: 100%;
+        padding-block: 50px;
+        -webkit-backdrop-filter: blur(5px) brightness(60%);
+        -moz-backdrop-filter: blur(5px) brightness(60%);
+        -o-backdrop-filter: blur(5px) brightness(60%);
+        -ms-backdrop-filter: blur(5px) brightness(60%);
+        backdrop-filter: blur(5px) brightness(60%);
+}
+
+.grid {
+        width: 90%;
+        margin-left: 5%;
+}
+
+@media screen and (max-width: 450px) {
+        .title-text>h1 {
+                font-size: 4.5vh !important;
+        }
+        .title-text>h2 {
+                font-size: 2vh !important;
+        }
+}
+
+.title-text {
+        margin-bottom: 50px;
+        margin-left: 3.5vw;
+        font-family: 'greycliff';
+        color: white;
+        text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+}
+
+.title-text>h1 {
+        font-size: 6vh;
+}
+
+.title-text>h2 {
+        margin-top: -0.75vh;
+        font-size: 2.5vh;
+}
+
+#modal-img {
+        max-width: 90vw !important;
+        max-height: 90vh !important;
+}
+
+* {
+  outline: none;
+}
