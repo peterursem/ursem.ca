@@ -3,12 +3,11 @@
 const LENGTH_TIME_MULTIPLIER = 0.4; // MS / UNIT LENGTH
 const COVER_URLS = [
         '/2023/hualtuco/hualtuco-28',
-        '/web/cover1.jpg',
-        '/web/cover2.jpg',
-        '/web/cover3.jpg',
+        '/web/cover1',
+        '/web/cover2',
+        '/web/cover3',
         '/2024/Astronomy/07',
         '/2023/nl/nl-127',
-        '/2024/Nederland/20',
         '/2024/Nederland/12',
         '/2024/Nederland/25',
         '/2024/Montana-Idaho/60',

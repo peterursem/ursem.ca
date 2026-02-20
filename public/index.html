@@ -31,6 +31,10 @@
 <script defer src="assets/cover.js"></script><script defer src="assets/work.js"></script></head>
 
 <body id="body">
+    <ul class="menu menu-lg menu-horizontal">
+        <li class="menu-active"><a>Work</a></li>
+        <li><a href="/images/">Photos</a></li>
+    </ul>
     <div id="cover" class="skeleton">
         <svg id="cover-text" class="shadow-lg shadow-white" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100vw" height="100vh" xml:space="preserve">
             <linearGradient id="linear-gradient">
@@ -79,16 +83,19 @@
                 <h1 id="work-title"></h1>
                 <a id="work-date"></a>
                 <p id="work-text"></p>
+                <a id="work-cta" class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-200">Check it out!</a>
             </div>
         </div>
         <div id="scrollbar" class="scroll">
-            <img src="/images/web/RedFlower.png" class="work-step" data-title="MIAU" data-date="Summer 2025" data-text="I designed a PCB and supporting electronics for a motorcycle ignition that unlocks using Apple HomeKey technology." data-bg="/images/work/miau.png">
+            <img src="/images/web/RedFlower.png" class="work-step" data-title="Tessera" data-date="Jan 2026 to Now" data-text="A single pixel camera. This project combines hadware and software design, with each piece designed to be modular. I learned about lenses, signal processing, and practiced C and OpenCL programming." data-bg="/images/work/tessera.webp" data-cta="https://github.com/peterursem/tessera/">
             <img src="/images/web/BlueFlower.png">
-            <img src="/images/web/GreenFlower.png" class="work-step" data-title="4 Pics 1 Word" data-date="2024" data-text="I was asked to create a game for the Canadian Pony Club that quizzes users on their horse knowledge. The gameplay is based on the mobile game by the same name." data-bg="/images/work/4Pics/bg.jpg">
+            <img src="/images/web/GreenFlower.png" class="work-step" data-title="CardWizard" data-date="April 2023 to July 2025" data-text="CardWizard is an online image processing tool that outputs print ready files to easily die cut to size. It improved the time to print by over 12X compared to Staples' existing solution. The tool helped to generate new revenue in store and correct mistakes in production." data-bg="/images/work/cw.webp" data-cta="https://CardWizard.ca/">
             <img src="/images/web/BlueFlower.png">
-            <img src="/images/web/RedFlower.png" class="work-step" data-title="CardWizard" data-date="April 2023 to July 2025" data-text="CardWizard is an image processing utility that outputs print ready files to easily die cut down to size. It improved the time to print by over 12X compared to Staples' existing solution. The tool helped to generate new revenue and correct mistakes in production." data-bg="/images/work/CardWizard.png">
+            <img src="/images/web/RedFlower.png" class="work-step" data-title="MIAU" data-date="Summer 2025" data-text="The Motorcycle Ignition Accessory Unit. I designed a PCB and supporting electronics for a motorcycle ignition that unlocks using Apple HomeKey technology." data-bg="/images/work/miau.webp" data-cta="https://github.com/peterursem/MIAU/">
             <img src="/images/web/BlueFlower.png">
-            <img src="/images/web/GreenFlower.png" class="work-step" data-title="Photo Site" data-date="2020 to Now" data-text="A place to share my photography with friends and family across the world." data-bg="/images/work/photos.jpg">
+            <img src="/images/web/GreenFlower.png" class="work-step" data-title="4 Pics 1 Word" data-date="2024" data-text="I was asked to create a game for the Canadian Pony Club that quizzes users on their horse knowledge. The gameplay is based on the mobile game by the same name." data-bg="/images/work/4pics.webp" data-cta="https://4pics.ursem.cc">
+            <img src="/images/web/BlueFlower.png">
+            <img src="/images/web/RedFlower.png" class="work-step" data-title="Photo Site" data-date="2020 to Now" data-text="A place to share my photography with friends and family across the world! I experiment with new design techniques here and get creative." data-bg="/images/work/photosite.webp" data-cta="/images">
             <img src="/images/web/BlueFlower.png">
         </div>
     </section>

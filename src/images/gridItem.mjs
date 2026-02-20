@@ -4,8 +4,9 @@ import imagesLoaded from "imagesloaded";
 
 export class GridItem {
     constructor(img, id) {
-        this.id = id;
-        this.tags = [...img.tags];
+        this.id = id; // A numerical id, used for favs
+        this.tags = [...img.tags]; // Used for search
+        
         this.imgElem = document.createElement('img');
         this.imgElem.src = '/thumbs/' + img.url + '.webp';
         this.imgElem.classList = "w-full rounded-xl shadow";

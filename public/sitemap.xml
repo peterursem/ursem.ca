@@ -1,6 +1,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
 <url>
-<loc>https://ursem.cc/</loc>
-<lastmod>2023-08-24T23:33:04+00:00</lastmod>
+    <loc>https://ursem.ca/</loc>
+    <lastmod>2026-01-25</lastmod>
 </url>
+
+<url>
+    <loc>https://ursem.ca/images/</loc>
+    <lastmod>2026-01-25</lastmod>
+</url>
+
 </urlset>
