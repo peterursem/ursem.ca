@@ -4,10 +4,14 @@ require('./images.css');
 const Collection = require("./collection.mjs").Collection;
 const imagesLoaded = require("imagesloaded");
 
-const BOTTOM_SCROLL_TRIGGER_PX = window.innerHeight; //The maximum height of the viewport in pixels from the bottom required to load more images when scrolling
+const BOTTOM_SCROLL_TRIGGER_PX = window.innerHeight * 0.5; //The maximum height of the viewport (in pixels from the bottom) required to load more images when scrolling
 const TOTAL_COLUMNS = 4;
 
 var collectionNum = 0;
+/*
+    Load the next collection.
+    After loading the second collection, recursively load all collections.
+*/
 function nextCollection() {
     if(collectionNum < Collection.collections.length) {
         Collection.collections[collectionNum++].populateCollection()
@@ -17,8 +21,10 @@ function nextCollection() {
             let columnsLoaded = 0;
             collection.columns.forEach(column => {
                 imagesLoaded(column, () => {
-                if (++columnsLoaded == TOTAL_COLUMNS && collectionNum > 1)
-                    nextCollection();
+                    columnsLoaded++;
+                    if (columnsLoaded >= TOTAL_COLUMNS && collectionNum > 1)
+                        // If all images are loaded, load the next collection
+                        nextCollection();
                 });
             });
         });
@@ -27,7 +33,9 @@ function nextCollection() {
     }
 }
 
-
+/*
+ Set up all collections and render the first.
+*/
 function setupPage() {
     fetch('/images/database.json')
         .then(result => result.json())
@@ -37,15 +45,15 @@ function setupPage() {
             })})
         .then(() => {
             nextCollection();
-            document.addEventListener("scroll", handleScroll);
+            document.body.addEventListener("scroll", handleScroll);
         });
 }
 
 setupPage();
 
 function handleScroll() {
-    if(window.scrollY + window.innerHeight > document.body.scrollHeight - BOTTOM_SCROLL_TRIGGER_PX) {
+    if(document.body.scrollTop + window.innerHeight > document.body.scrollHeight - BOTTOM_SCROLL_TRIGGER_PX) {
         nextCollection();
-        document.removeEventListener("scroll", handleScroll);
+        document.body.removeEventListener("scroll", handleScroll);
     }
 }

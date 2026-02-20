@@ -1,18 +1,7 @@
 @import "../style.css";
 
 body {
-    height: 100vh;
-    overflow-y: scroll;
     scroll-snap-type: y mandatory; 
-    scroll-behavior: smooth;  
-}
-
-.full-absolute {
-    position: absolute;
-    left: 0;
-    width: 100vw;
-    top: 0; 
-    height: 100vh;
 }
 
 #cover {
@@ -38,15 +27,16 @@ body {
 
     background-position: center;
     background-size: cover;
+
+    transition: background-image 200ms linear;
 }
 
 #work-overlay {
-    backdrop-filter: brightness(60%);
     pointer-events: none;
 }
 
 #work-tile {
-    z-index: 4;
+    z-index: 3;
     pointer-events: none;
 
     position: absolute;
@@ -68,21 +58,8 @@ body {
     background-image: url('/public/images/web/Tile.jpg');
 }
 
-@media screen and (max-width: 450px) {
-    #scrollbar {
-        padding-block: calc(calc(75vh - var(--tile-size) / 2) / 2) !important;
-        margin-top: calc(25vh + var(--tile-size) / 2) !important;
-        height: calc(75vh - var(--tile-size) / 2) !important;
-    }
-
-    #work {
-        --tile-size: min(40vh, 80vw) !important;
-    }
-
-    #work-tile {
-        left: calc(50vw - var(--tile-size) / 2) !important;
-        top: calc(25vh - var(--tile-size) / 2) !important;
-    }
+#work-cta {
+    pointer-events: all;
 }
 
 #work-title  {
@@ -101,11 +78,25 @@ body {
 #work-text {
     font-family: 'Roboto';
     margin-block-start: 0.67em;
-    font-size: min(calc(0.045 * var(--tile-size)), 1em);
+    font-size: min(calc(0.04 * var(--tile-size)), 1em);
+}
+
+#work-cta {
+    font-family: 'Roboto';
+    position: absolute;
+    width: 60%;
+    height: 10%;
+    left: 20%;
+    bottom: 5%;
+    color: #1F305E;
+    background-color: transparent;
+    border-color: #1F305E;
+    border-width: 2px;
 }
 
 #scrollbar {
-    z-index: 3;
+    z-index: 2;
+    backdrop-filter: brightness(60%);
 
     padding-block: 50vh;
 
@@ -139,6 +130,33 @@ body {
 
 .work-step {
     scroll-snap-align: center;
+    scroll-snap-stop: always;
     margin-bottom: 6%;
     margin-top: -2%;
+}
+
+@media screen and (max-aspect-ratio: 1) {
+    #scrollbar {
+        padding-block: 27vh !important;
+        height: 100vh !important;
+    }
+
+    .work-step:first-child {
+        margin-top: 22vh !important;
+    }
+
+    #work {
+        --tile-size: min(40vh, 80vw) !important;
+    }
+
+    #work-tile {
+        left: calc(50vw - var(--tile-size) / 2) !important;
+        top: calc(25vh - var(--tile-size) / 2) !important;
+    }
+}
+
+@media screen and (min-aspect-ratio: 3/1) {
+    #work-bg {
+        background-size: contain !important;
+    }
 }

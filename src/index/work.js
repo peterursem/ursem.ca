@@ -17,10 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const title = document.getElementById('work-title');
   const date = document.getElementById('work-date');
   const text = document.getElementById('work-text');
+  const ctaButton = document.getElementById('work-cta');
 
   const options = {
     root: document.getElementById('scrollbar'),
-    threshold: 0.01,
     rootMargin: '-45%'
   };
 
@@ -32,25 +32,26 @@ document.addEventListener("DOMContentLoaded", () => {
         const dDate = entry.target.getAttribute('data-date');
         const dText = entry.target.getAttribute('data-text');
         const dBg = entry.target.getAttribute('data-bg');
+        const dCTA = entry.target.getAttribute('data-cta');
 
         if (dBg) {
-          work.style.backgroundColor = '#222';
+          load(dBg).then(() => {
+            if (entry.isIntersecting) {
+              bg.style.backgroundImage = `url('${dBg}')`;
+            }
+          });
+        }
+        if (dTitle) title.textContent = dTitle;
+        if (dDate) date.textContent = dDate;
+        if (dText) text.textContent = dText;
+        if (dCTA) {
+          ctaButton.href = dCTA;
+        } else {
+          ctaButton.style = "display: hidden;";
         }
 
-        setTimeout(() => {
-          if (dTitle) title.textContent = dTitle;
-          if (dDate) date.textContent = dDate;
-          if (dText) text.textContent = dText;
-          if (dBg) {
-            load(dBg).then(() => {
-              bg.style.backgroundImage = `url('${dBg}')`;
-              work.style.backgroundColor = "transparent";
-            });
-          }
-
-          steps.forEach(s => s.classList.remove('active'));
-          entry.target.classList.add('active');
-        }, 300);
+        steps.forEach(s => s.classList.remove('active'));
+        entry.target.classList.add('active');
       }
     });
   }, options);
